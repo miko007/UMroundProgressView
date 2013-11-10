@@ -9,7 +9,7 @@ You will find the demos with detailed information, how to use the plugin include
 http://jquery.mike-ochmann.de/UMroundProgressView
 
 The demo will include serveral plugins for demostration purposes. The files you really need are just _jquery.js_**,
-downloaded or from online resource, and _jquery.UMroundProgressView.js_** or _jquery.UMroundProgressView.min.js_** from
+downloaded or from online resource, and **_jquery.UMroundProgressView.js_** or **_jquery.UMroundProgressView.min.js_** from
 this package.
 
-It's located in _'/src/'_
+It's located in **_'/src/'_**
