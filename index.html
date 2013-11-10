@@ -1,0 +1,221 @@
+<!DOCTYPE html />
+<html>
+<head>
+<title>Demo :: UMroundProgressView</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="demo/styles/default.css">
+<script src="demo/highlight.pack.js"></script>
+<script type="text/javascript" src="src/jquery.UMroundProgressView.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="demo/demo.css" />
+<script>
+$('document').ready(function() {
+    // initialize codehighlighting
+    hljs.initHighlightingOnLoad();
+
+    // initialize UMroundProgressViews
+    var progress1 = $('#progressView1').UMroundProgressView();
+    var progress2 = $('#progressView2').UMroundProgressView({size: 130});
+    var progress3 = $('#progressView3').UMroundProgressView({initialValue: 0.4});
+    var progress4 = $('#progressView4').UMroundProgressView({initialValue: 0.6, color: '#FF8000'});
+    var progress5 = $('#progressView5').UMroundProgressView({initialValue: 0.5, color: '#2869FF', thickness: '10'});
+    var progressTrigger = $('#progressTrigger').UMroundProgressView();
+    var progressTrigger2 = $('#progressTrigger2').UMroundProgressView({initialValue: 0.4});
+
+    // initialize the sliders for trigger examples
+    $('#slider').slider({min: 0, max: 1, step: 0.01, slide: function(event, ui) {
+        progressTrigger.setValue(ui.value);
+     }
+    });
+    $('#slider2').slider({min: 0, max: 1, value: 0.4, step: 0.01, slide: function(event, ui) {
+        progressTrigger2.setValue(ui.value);
+     }
+    });
+
+});
+</script>
+</head>
+
+<body>
+<h1>UMroundProgressView [JQuery Plugin] - DEMO</h1>
+
+ <article>
+<h2>Usage</h2>
+Make shure you have embedded <b>jquery.js</b> and <b>jquery.UMroundProgressView.js</b>
+ <pre>
+      <code>
+&lt;!DOCTYPE html/&gt;
+&lt;html&gt;
+ &lt;head&gt;
+       &lt;title&gt;your title&lt;/title&gt;
+       &lt;script type="text/javascript" src="src/jquery.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript" src="src/jquery.UMroundProgressView.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+     </code>
+</pre>
+Then you should instance the UMroundProgressView like in the examples below:
+ <pre>
+      <code>
+&lt;!DOCTYPE html/&gt;
+&lt;html&gt;
+ &lt;head&gt;
+       &lt;title&gt;your title&lt;/title&gt;
+       &lt;script type="text/javascript" src="src/jquery.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript" src="src/jquery.UMroundProgressView.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript"&gt;
+           $('document')ready(function() {
+               var progress = $('#idOfDestination').UMroundProgressView({options});
+           });
+       &lt;/script&gt;
+&lt;/head&gt;
+     </code>
+</pre>
+<h2>Options</h2>
+ <ul>
+     <li><b>color</b> (hexcode) - The desired color of the progressView as HexCode <i>(i.e. "#C7C7C7")</i></li>
+     <li><b>size</b> (pixels) - The desired size of the progressView in pixels <i>(without "px")</i>; UMroundProgressView
+     is ROUND, so it's size is a square one</li>
+     <li><b>initialValue</b> (number) - Specifies a start-value for UMroundProgressView. Accepted is all from [0.0] to [1.0]
+     because it stands for a percentage.</li>
+     <li><b>thickness</b> (pixels) - Specifies the thickness of the progress outer ring. Should be greater than <i>'5'</i> and lower
+     than <i>'size'</i></li>
+</ul>
+<h2>Triggers</h2>
+ <pre>
+      <code>
+  var instance = $('#element').UMroundProgressView({options});
+
+      instance.setValue('amount'); // udates the instance with the given value.
+     </code>
+</pre>
+</article>
+
+ <table rules='all'>
+        <tr>
+            <td>Output</td>
+            <td>Code</td>
+       </tr>
+        <tr>
+            <td><div id='progressView1'></div></td>
+             <td>
+                 <h3>simple initialization with no options</h3>
+                 <pre>
+                      <code>
+  var progress1 = $('#progressView1').UMroundProgressView();
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr style='background: #DFFFBF;'>
+            <td><div id='progressView2'></div></td>
+             <td>
+                 <h3>initialization with size</h3>
+                 <pre>
+                      <code>
+  var progress2 = $('#progressView2').UMroundProgressView({size: 130});
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr>
+            <td><div id='progressView3'></div></td>
+             <td>
+                 <h3>initialization with start value</h3>
+                 <pre>
+                      <code>
+  var progress3 = $('#progressView3').UMroundProgressView({initialValue: 0.4});
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr style='background: #DFFFBF;'>
+            <td><div id='progressView4'></div></td>
+             <td>
+                 <h3>initialization with start value and custom color</h3>
+                 <pre>
+                      <code>
+  var progress4 = $('#progressView4').UMroundProgressView({initialValue: 0.6, color: '#FF8000'});
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr>
+            <td><div id='progressView5'></div></td>
+             <td>
+                 <h3>initialization with start value and custom color and custom thickness</h3>
+                 <pre>
+                      <code>
+  var progress5 = $('#progressView5').UMroundProgressView({initialValue: 0.5, color: '#2869FF', thickness: '10'});
+                     </code>
+                </pre>
+            </td>
+       </tr>
+</table>
+
+<article>
+<h2>How to trigger</h2>
+ <p>
+    Here we use a jquery.slide(); to manipulate the instanced UMroundProgressView. The slider will user the <i>setValue()</i> trigger of the UMroundProgressView instance.
+</p>
+</article>
+<table rules='all'>
+        <tr>
+            <td>Output</td>
+            <td>Code</td>
+       </tr>
+        <tr>
+            <td><div id='progressTrigger'></div></td>
+            <td>
+                <div id='slider'></div>
+                <pre>
+                     <code>
+  $('document').ready(function() {
+    var progressTrigger = $('#progressTrigger').UMroundProgressView();
+
+    // initialize the slider for trigger example
+    $('#slider').slider({min: 0, max: 1, step: 0.01, slide: function(event, ui) {
+
+        progressTrigger.setValue(ui.value); // here the trigger is used to set the new value to UMroundProgressView
+
+     }
+    });
+  });
+                    </code>
+               </pre>
+           </td>
+       </tr>
+        <tr style='background: #DFFFBF;'>
+            <td><div id='progressTrigger2'></div></td>
+            <td>
+                <h3>Example with start-value</h3>
+                <div id='slider2'></div>
+                <pre>
+                     <code>
+  $('document').ready(function() {
+    var progressTrigger2 = $('#progressTrigger2').UMroundProgressView({initalValue: 0.4});
+
+    // initialize the slider for trigger example
+    $('#slider2').slider({min: 0, max: 1, value: 0.4, step: 0.01, slide: function(event, ui) {
+
+        progressTrigger2.setValue(ui.value); // here the trigger is used to set the new value to UMroundProgressView
+
+     }
+    });
+  });
+                    </code>
+               </pre>
+           </td>
+       </tr>
+</table>
+ <article>
+ <p style='margin-top: 50px;'>
+    <h2>Discuss,ask and download on GitHub: </h2>
+    <a href='https://github.com/miko007/UMroundProgressView'><h3>https://github.com/miko007/UMroundProgressView</h3></a>
+</p>
+ <p>
+    <sub>&copy; 2013, MikO (Michael Ochmann)</sub>
+</p>
+</article>
+</body>
+</html>
