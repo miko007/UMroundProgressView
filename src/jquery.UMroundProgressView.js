@@ -1,3 +1,20 @@
+/**
+* UMroundProgressView jQuery.subclass
+* Version: 1.0
+* -
+**** creates a round shaped progressbar
+* -
+* @param color [hex]
+* @param size [pixels]
+* @param initialValue [number]
+* @param thickness [pixels]
+* @method setValue([numner])
+* -
+* (C) 2013, MikO (Michael Ochmann)
+* http://jquery.mike-ochmann.de/UMroundNavigationView
+* twitter: @miko007 || facebook: $/mike.ochmann
+*/
+
 var instanceCount = 0;
 
 (function($) {
